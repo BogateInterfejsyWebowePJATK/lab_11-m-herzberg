@@ -1,0 +1,16 @@
+@import './index.scss';
+
+.footer {
+  clear: both;
+  position: fixed;
+  margin-top:23px;
+  bottom: 0;
+  height: 50px;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  background-color: #d95816;
+  color: cornsilk;
+  font-size: small;
+  font-family: "Arial Black";
+}
