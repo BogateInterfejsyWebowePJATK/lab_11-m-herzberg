@@ -1,20 +1,28 @@
 // ./src/components/GenerateInts.js
 
-import React from "react";
+import React, {useState} from "react";
 import GenerateInt from "./GenerateInt";
 
-export default function GenerateInts({nums, onRefresh = f => f}){
+function deleteElement(map, i = 0){
+   if(i == 0) return map;
+   else {
+       map.pop();
+       return map;
+   }
+}
 
+export default function GenerateInts({nums, onRefresh = f => f}){
+const [numbers,getNums] = useState(deleteElement(nums));
 
     return (
         <section>
         <ul className={"numbers"}>
             {
-                nums.map((num,i) =>(
-
+                numbers.map((num,i) =>(
                 <GenerateInt
                     key={i}
                     val={num}
+                    onDelete={() => {deleteElement(numbers)}}
                 />
                 )
             )
