@@ -2,7 +2,6 @@
 
 import React from "react";
 
-export default function GenerateInt(){
-    var x = Math.floor(Math.random() * 400 ) - 200;
-    return (<li>{x}</li>);
+export default function GenerateInt({val}){
+    return (<li>{val}</li>);
 }

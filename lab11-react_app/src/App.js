@@ -1,16 +1,23 @@
 import './App.css';
-import React from "react";
+import React, {useState} from "react";
 import GenerateInts from "./components/GenerateInts";
 
 
+function generateNumbers() {
+    let numbers = [];
+    for (let i = 0; i < 10; i++)
+        numbers.push(Math.floor(Math.random() * 400) - 200);
+    return numbers;
+}
 function App() {
-  return[
+    const [numbers, setNumbers] = useState(generateNumbers());
+
+
+  return(
     <React.Fragment>
-      <ul>
-        <GenerateInts amount={10}></GenerateInts>
-      </ul>
+        <GenerateInts nums={numbers} onRefresh={() => { setNumbers(generateNumbers());}}></GenerateInts>
     </React.Fragment>
-  ];
+  );
 }
 
 export default App;

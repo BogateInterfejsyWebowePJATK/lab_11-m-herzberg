@@ -3,10 +3,24 @@
 import React from "react";
 import GenerateInt from "./GenerateInt";
 
-export default function GenerateInts({amount}){
-    var numbers = [];
-    for(var x = 0; x < amount; x++){
-        numbers[x] = GenerateInt();
-    }
-    return (<ul>{numbers}</ul>)
+export default function GenerateInts({nums, onRefresh = f => f}){
+
+
+    return (
+        <section>
+        <ul className={"numbers"}>
+            {
+                nums.map((num,i) =>(
+
+                <GenerateInt
+                    key={i}
+                    val={num}
+                />
+                )
+            )
+            }
+        </ul>
+        <button onClick={onRefresh}>Nowe liczby</button>
+        </section>
+            )
 }
